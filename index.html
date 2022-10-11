@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <title>
+            Analizador de muestras de presión
+        </title>
+    </head>
+    <body>
+        <h1>Analizador de datos RAP</h1>
+        <form action="" method="get">
+
+            <textarea
+            name="origenTextBox" 
+            id="origen"
+            placeholder="Pega aqu&iacute; los datos de presión colectados con Putty"
+            rows="20"
+            style="width:100%; height:400px; vertical-align:top;"
+            onload="limpiaTexto()"
+            ></textarea>
+        </input>
+            <br/>
+            <input type="button" name="procesarButton" value="Procesar" onclick="procesar()"/>
+        </form>
+        <div id="curve_chart" style="width:100%; height:600px; vertical-align:top;"></div>
+    </body>
+    <script src="./js/engine.js"></script>
+</html>
