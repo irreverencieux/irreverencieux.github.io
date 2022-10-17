@@ -1,4 +1,21 @@
+function previsualizaArchivo() {
+    const preview = document.querySelector('origen');
+    const file = document.querySelector('input[type=file]').files[0];
+    const reader = new FileReader();
+  
+    reader.addEventListener("load", () => {
+      // convert image file to base64 string
+      preview.value = reader.result;
+    }, false);
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
 
+
+function donnot()
+{
 
 const fileSelector = document.getElementById('archivo');
 const caja = document.getElementById('origen');
@@ -8,7 +25,7 @@ fileSelector.addEventListener('change', (event) => {
   caja.value=file;
 });
 
-
+}
 
 function cargatxt()
 {
