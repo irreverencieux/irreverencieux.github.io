@@ -99,6 +99,7 @@ function esMuestra(linea){
             reader.addEventListener("load", () => {
               // convert image file to base64 string
               preview.value = reader.result;
+              alert(reader.result);
             }, false);
           
             if (file) {
