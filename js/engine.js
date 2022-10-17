@@ -92,14 +92,15 @@ function esMuestra(linea){
         }
         
         function previsualizaArchivo() {
-            const preview = document.querySelector('origen');
-            const file = document.querySelector('input[type=file]').files[0];
-            const reader = new FileReader();
+            let preview = document.getElementById('origen');
+            let file =   document.getElementById('archivo');//   document.querySelector('input[type=file]').files[0];
+
+            let reader = new FileReader();
           
             reader.addEventListener("load", () => {
               // convert image file to base64 string
               preview.value = reader.result;
-              alert(reader.result);
+              //alert(reader.result);
             }, false);
           
             if (file) {
