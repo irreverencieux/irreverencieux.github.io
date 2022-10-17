@@ -27,6 +27,7 @@ input.addEventListener('change', () => {
         // Returns and line breaks
         const lines = file.split(/\r\n|\n/);
         textarea.value = lines.join('\n');
+        alert(textarea.value);
  
     };
  
