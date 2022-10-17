@@ -1,3 +1,19 @@
+
+
+const fileSelector = document.getElementById('archivo');
+const caja = document.getElementById('origen');
+fileSelector.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  //console.log(fileList);
+  caja.value=file;
+});
+
+
+
+function cargatxt()
+{
+
+
 let input = document.querySelector('archivo')
  
 let textarea = document.querySelector('origen')
@@ -35,3 +51,4 @@ input.addEventListener('change', () => {
  
     reader.readAsText(file);
 });
+}
