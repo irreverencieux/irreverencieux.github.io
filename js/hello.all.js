@@ -3982,8 +3982,8 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 
 			// Authorization scopes
 			scope: {
-				//basic: 'openid profile',
-				basic: 'profile',
+				basic: 'openid profile',
+				//basic: 'profile',
 				email: 'email',
 				birthday: '',
 				events: '',
