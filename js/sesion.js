@@ -1,7 +1,3 @@
-hello.init({
-  google: '74426412150-gv4r0mjgaat58mvvv56s8dtqb4tpmibd.apps.googleusercontent.com'
-});
-
 hello.on('auth.login', function (auth) {
 
         // add a greeting and access the thumbnail and name from
