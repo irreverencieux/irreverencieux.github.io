@@ -3255,9 +3255,7 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 		}
 	});
 
-	hello.init({
-		google: '74426412150-gv4r0mjgaat58mvvv56s8dtqb4tpmibd.apps.googleusercontent.com'
-	}, {redirect_uri: '/graficar.html'});
+
 
 	function formatError(o) {
 		if (o && 'error' in o) {
@@ -3968,6 +3966,10 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 	var contactsUrl = 'https://www.google.com/m8/feeds/contacts/default/full?v=3.0&alt=json&max-results=@{limit|1000}&start-index=@{start|1}';
 
 	hello.init({
+		google: '74426412150-gv4r0mjgaat58mvvv56s8dtqb4tpmibd.apps.googleusercontent.com'
+	}, {redirect_uri: './graficar.html'});
+
+	hello.init({
 
 		google: {
 
@@ -3977,13 +3979,13 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 			oauth: {
 				version: 2,
 				auth: 'https://accounts.google.com/o/oauth2/v2/auth',
-				grant: 'https://www.googleapis.com/oauth2/v4/token'
+				grant: 'https://oauth2.googleapis.com/token'
+				//grant: 'https://www.googleapis.com/oauth2/v4/token'
 			},
 
 			// Authorization scopes
 			scope: {
 				basic: 'openid profile',
-				//basic: 'profile',
 				email: 'email',
 				birthday: '',
 				events: '',
