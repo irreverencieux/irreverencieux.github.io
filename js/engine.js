@@ -115,5 +115,7 @@ function esMuestra(linea){
               reader.readAsText(file);
             }
           }
+function logueado(datos){
 
+}
 
