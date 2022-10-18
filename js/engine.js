@@ -13,11 +13,11 @@ function drawChart(datos) {
     var titulos= ['Fecha y hora', 'Presion'];
     var tabla = [];
     tabla.push(titulos);
-    console.log("Titulos: ",titulos);
+    //console.log("Titulos: ",titulos);
     datos.forEach(dato => {
         tabla.push(dato);
     });
-    console.log("Tabla: ", tabla);
+    //console.log("Tabla: ", tabla);
     var data = google.visualization.arrayToDataTable(tabla);
 
   var options = {
@@ -93,8 +93,8 @@ function esMuestra(linea){
         
         function previsualizarArchivo() {
             let preview = document.getElementById('origen');
-            //let file =   document.getElementById('archivo');//   document.querySelector('input[type=file]').files[0];
-            let file =   document.querySelector('input[type=file]').files[0];
+            let file =   document.getElementById('archivo').files[0];//   document.querySelector('input[type=file]').files[0];
+            //let file =   document.querySelector('input[type=file]').files[0];
 
             let reader = new FileReader();
           
@@ -105,6 +105,6 @@ function esMuestra(linea){
             }, false);
           
             if (file) {
-              reader.readAsDataURL(file);
+              reader.readAsText(file);
             }
           }
