@@ -116,7 +116,8 @@ function esMuestra(linea){
             }
           }
 function logueado(datos){
-  console.log("login exitoso");
+  console.log("Callback invocado...");
+  console.log(datos);
 
 }
 
