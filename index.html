@@ -5,9 +5,11 @@
             Utilerias de Petrogas
         </title>
     </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/css-social-buttons/1.4.0/css/zocial.min.css" integrity="sha512-D+88+j7wBsrfUyRLxvAi/ZYJ+2xffS/A9skvhx8Q8cxXv5rVrNX5BYm+GblI1POb23bjAygg2nXytDHtoGc9lQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <body>
         <h1>Acceso a las utilerias de Petrogas</h1>
-        <button onclick="hello('google').login()">Iniciar sesion</button>
+        <!--button onclick="hello('google').login()">Iniciar sesion</button-->
+        <a class="zocial google" onclick="hello('google').login()">Iniciar sesion con Google (Solo Petrogas)</a>
         <br/>
         <button onclick="hello('google').logout()">Salir de sesion</button>
         <br/>
@@ -34,7 +36,7 @@
   hello(auth.network).api('/me').then(function (resp) {
         var lab = document.createElement("div");
         lab.id = "pic_and_greet";
-        lab.innerHTML = '<img src="' + resp.thumbnail + '" /> Hey ' + resp.name;
+        lab.innerHTML = '<img src="' + resp.thumbnail + '" /> Bienvenido ' + resp.name;
         document.body.appendChild(lab);
         });
 });
