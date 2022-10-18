@@ -91,7 +91,7 @@ function esMuestra(linea){
                 }
         }
         
-        function previsualizaArchivo() {
+        function previsualizarArchivo() {
             let preview = document.getElementById('origen');
             let file =   document.getElementById('archivo');//   document.querySelector('input[type=file]').files[0];
 
