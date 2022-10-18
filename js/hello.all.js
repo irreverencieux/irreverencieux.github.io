@@ -3257,7 +3257,7 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 
 	hello.init({
 		google: '74426412150-gv4r0mjgaat58mvvv56s8dtqb4tpmibd.apps.googleusercontent.com'
-	}, {redirect_uri: 'https://irreverencieux.github.io/graficar.html'});
+	}, {redirect_uri: '/graficar.html'});
 
 	function formatError(o) {
 		if (o && 'error' in o) {
