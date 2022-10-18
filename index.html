@@ -16,34 +16,32 @@
         <!--button onclick="hello('google').login()">Iniciar sesion</button-->
         <!--a class="zocial google" style="font-size: x-large;" onclick="hello('google').login()">Iniciar sesion con Google (Solo Petrogas)</a-->
 
-    
-        <div id="my-signin2">Iniciar sesión</div>
-        <script>
-            function onSuccess(googleUser) {
-            console.log('Iniciaste sesion como: ' + googleUser.getBasicProfile().getName());
-            }
-            function onFailure(error) {
-            console.log(error);
-            }
-            function renderButton() {
-            gapi.signin2.render('my-signin2', {
-                'scope': 'profile email',
-                'width': 240,
-                'height': 50,
-                'longtitle': true,
-                'theme': 'dark',
-                'onsuccess': onSuccess,
-                'onfailure': onFailure
-            });
-            }
-        </script>
+        <div id="g_id_onload"
+     data-client_id="74426412150-gv4r0mjgaat58mvvv56s8dtqb4tpmibd.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-login_uri="https://irreverencieux.github.io/index.html"
+     data-nonce=""
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="pill"
+     data-theme="filled_blue"
+     data-text="$ {button.text}"
+     data-size="large"
+     data-logo_alignment="left"
+     data-width="40">
+</div>
+        
         <!--button onclick="hello('google').logout()">Salir de sesion</button-->
         <br/>
    
         
     </body>
     <!--script src="js/hello.all.js"></script-->
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <!--script src="js/sesion.js"></script-->
     
 
