@@ -120,7 +120,7 @@ function logueado(response){
      // to decode the credential response.
   const responsePayload = decodeJwtResponse(response.credential);
   console.log("Callback invocado...");
-  console.log(datos);
+  //console.log(response);
   console.log("ID: " + responsePayload.sub);
   console.log('Nombre completo: ' + responsePayload.name);
   console.log('Nombre: ' + responsePayload.given_name);
