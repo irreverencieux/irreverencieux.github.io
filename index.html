@@ -2,35 +2,16 @@
     <head>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <title>
-            Analizador de muestras de presión
+            Utilerias de Petrogas
         </title>
     </head>
     <body>
-        <h1>Analizador de datos RAP</h1>
+        <h1>Acceso a las utilerias de Petrogas</h1>
         <button onclick="hello('google').login()">google</button>
         <br/>
-        <form action="" method="get">
-            
-            <input id="archivo" type="file" accept=".txt, .log"/><br />
-            <input type="button" name="cargarButton" value="Cargar" onclick="previsualizarArchivo()"/>
-
-
-            <br/>
-            <textarea
-            name="origenTextBox" 
-            id="origen"
-            placeholder="Pega aqu&iacute; los datos de presión colectados con Putty"
-            rows="20"
-            style="width:100%; height:400px; vertical-align:top;"
-            onload="limpiaTexto()"
-            ></textarea>
-            <br/>
-            <input type="button" name="procesarButton" value="Procesar" onclick="procesar()"/>
-        </form>
-        <div id="grafica" style="width:100%; height:600px; vertical-align:top;"></div>
+   
         
     </body>
     <script src="js/hello.all.js"></script>
-    <script src="js/engine.js"></script>
-    <!--script src="./js/filepicker0.js"></script-->
+
 </html>
