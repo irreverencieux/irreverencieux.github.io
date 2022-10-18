@@ -3255,6 +3255,11 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 		}
 	});
 
+	hello.init({
+		google: 74426412150-gv4r0mjgaat58mvvv56s8dtqb4tpmibd.apps.googleusercontent.com
+	}, {redirect_uri: window.location.href.split('#')[0]
+});
+
 	function formatError(o) {
 		if (o && 'error' in o) {
 			o.error = {
@@ -4136,6 +4141,9 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 			form: false
 		}
 	});
+
+
+	///////////
 
 	function toInt(s) {
 		return parseInt(s, 10);
