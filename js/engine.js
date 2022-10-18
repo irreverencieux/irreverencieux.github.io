@@ -93,7 +93,8 @@ function esMuestra(linea){
         
         function previsualizarArchivo() {
             let preview = document.getElementById('origen');
-            let file =   document.getElementById('archivo');//   document.querySelector('input[type=file]').files[0];
+            //let file =   document.getElementById('archivo');//   document.querySelector('input[type=file]').files[0];
+            let file =   document.querySelector('input[type=file]').files[0];
 
             let reader = new FileReader();
           
