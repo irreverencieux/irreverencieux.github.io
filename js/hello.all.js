@@ -3965,9 +3965,7 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 
 	var contactsUrl = 'https://www.google.com/m8/feeds/contacts/default/full?v=3.0&alt=json&max-results=@{limit|1000}&start-index=@{start|1}';
 
-	hello.init({
-		google: '74426412150-gv4r0mjgaat58mvvv56s8dtqb4tpmibd.apps.googleusercontent.com'
-	}, {redirect_uri: '#'});
+	
 
 	hello.init({
 
