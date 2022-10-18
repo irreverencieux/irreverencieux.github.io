@@ -14,27 +14,45 @@
         <h1>Acceso a las utilerias de Petrogas</h1>
         <!--button onclick="hello('google').login()">Iniciar sesion</button-->
         <!--a class="zocial google" style="font-size: x-large;" onclick="hello('google').login()">Iniciar sesion con Google (Solo Petrogas)</a-->
-        <a class="btn btn-block btn-social btn-google" onclick="hello('google').login()"> <span class="fa fa-google"></span> Iniciar sesion con Google (Solo Petrogas) </a>
-        <br/>
-        <a class="btn btn-block btn-social btn-google" > <span class="fa fa-google"></span> Sign in with Google </a>
-        <br/>
+
+        <div id="my-signin2"></div>
+        <script>
+            function onSuccess(googleUser) {
+            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            }
+            function onFailure(error) {
+            console.log(error);
+            }
+            function renderButton() {
+            gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+            }
+        </script>
         <button onclick="hello('google').logout()">Salir de sesion</button>
         <br/>
    
         
     </body>
-    <script src="js/hello.all.js"></script>
+    <!--script src="js/hello.all.js"></script-->
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <!--script src="js/sesion.js"></script-->
-    <script
+    
 
-    <script src="js/hello.all.js"></script>
-<script>
+    <!--script src="js/hello.all.js"></script-->
+<!--script>
   hello.init({
     google: "74426412150-gv4r0mjgaat58mvvv56s8dtqb4tpmibd.apps.googleusercontent.com"     // not real id
   });
-</script>
+</script!-->
 
-<script>
+<!--script>
     hello.on('auth.login', function (auth) {
 
 // add a greeting and access the thumbnail and name from
@@ -54,6 +72,6 @@
     var lab = document.getElementById("pic_and_greet");
     if (lab != null) document.body.removeChild( lab );
     });
-</script>
+</script-->
 
 </html>
