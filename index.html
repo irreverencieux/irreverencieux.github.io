@@ -17,10 +17,10 @@
         <!--a class="zocial google" style="font-size: x-large;" onclick="hello('google').login()">Iniciar sesion con Google (Solo Petrogas)</a-->
 
     
-        <div id="my-signin2"></div>
+        <div id="my-signin2">Iniciar sesión</div>
         <script>
             function onSuccess(googleUser) {
-            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            console.log('Iniciaste sesion como: ' + googleUser.getBasicProfile().getName());
             }
             function onFailure(error) {
             console.log(error);
@@ -37,7 +37,7 @@
             });
             }
         </script>
-        <button onclick="hello('google').logout()">Salir de sesion</button>
+        <!--button onclick="hello('google').logout()">Salir de sesion</button-->
         <br/>
    
         
