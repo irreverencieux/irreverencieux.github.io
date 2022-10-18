@@ -115,9 +115,18 @@ function esMuestra(linea){
               reader.readAsText(file);
             }
           }
-function logueado(datos){
+function logueado(response){
+       // decodeJwtResponse() is a custom function defined by you
+     // to decode the credential response.
+  const responsePayload = decodeJwtResponse(response.credential);
   console.log("Callback invocado...");
   console.log(datos);
+  console.log("ID: " + responsePayload.sub);
+  console.log('Nombre completo: ' + responsePayload.name);
+  console.log('Nombre: ' + responsePayload.given_name);
+  console.log('Apellidos: ' + responsePayload.family_name);
+  console.log("Image URL: " + responsePayload.picture);
+  console.log("Email: " + responsePayload.email);
 
 }
 
