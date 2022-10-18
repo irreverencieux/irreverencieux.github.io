@@ -1,5 +1,3 @@
-
-
 /*
 hello.on('auth.login', function(auth) {
 
