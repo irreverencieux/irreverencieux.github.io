@@ -39,12 +39,19 @@ function drawChart(datos) {
     legend: { position: 'bottom' }
   };
 
-  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  var chart = new google.visualization.LineChart(document.getElementById('grafica'));
 
   chart.draw(data, options);
 }
 
 function procesar(){
+  //document.getElementById('grafica')
+  const grafica=document.getElementById('grafica');
+  grafica.innerHTML="";
+  
+  
+ //this line is to watch the result in console , you can remove it later	
+  console.log("Refreshed"); 
     let texto = document.getElementById('origen').value;
     if (texto === undefined || texto === null) {
         //console.log("Error: Se intenta procesar una pagina cargada parcialmente o un control incorrecto (textarea:'origen')");
