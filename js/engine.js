@@ -212,7 +212,7 @@ function nextIteration(target)
     
     var ttt = document.getElementById("Sump");//document.querySelector('.Sump');
     console.log(ttt);
-    ttt.innerHTML =sumpC;
+    ttt.innerHTML =sumpC;//
     
 
 }
