@@ -31,24 +31,26 @@
                     class="btn btn-primary btn-lg"/>
                 </div>
             </div>
-            
-                    
-
-            <br/>
-
-
-            <br/>
-            <textarea
-            name="origenTextBox" 
-            id="origen"
-            placeholder="Pega aqu&iacute; los datos de presión colectados con Putty"
-            rows="20"
-            style="width:100%; height:400px; vertical-align:top;"
-            onload="limpiaTexto()"
-            ></textarea>
-            <br/>
-            <input type="button" name="procesarButton" value="Procesar" onclick="procesar()" class="btn btn-success"/>
+            <div class="form-row">
+                <div class="col">
+                    <textarea
+                    name="origenTextBox" 
+                    id="origen"
+                    placeholder="Pega aqu&iacute; los datos de presión colectados con Putty"
+                    rows="20"
+                    style="width:100%; height:400px; vertical-align:top;"
+                    onload="limpiaTexto()"
+                    ></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col"></div>
+                <div class="col">
+                    <input type="button" name="procesarButton" value="Procesar" onclick="procesar()" class="btn btn-success"/>
+                </div>
+            </div>
         </form>
+        <br/>
         <div id="grafica" style="width:100%; height:600px; vertical-align:top;"></div>
         
     </body>
