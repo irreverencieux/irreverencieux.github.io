@@ -17,11 +17,24 @@
         <h2>Analizador de datos RAP</h2>
         <br/>
         <form action="" method="get">
+            <div class="form-row">
+                <div class="col">
+                <label for="archivo">Selecciona un archivo de bitácoras del R.A.P.</label>
+                <input id="archivo" type="file" accept=".txt, .log"/>
+                <small id="tipDeArchivo" class="text-muted">
+                    Debe ser .txt o .log
+                </small>
+                </div>
+                <div class="col">
+                    <!--label for="cargarButton"> </label-->
+                    <input type="button" name="cargarButton" value="Cargar" onclick="previsualizarArchivo()"
+                    class="btn btn-primary btn-lg"/>
+                </div>
+            </div>
             
-            <input id="archivo" type="file" accept=".txt, .log"/><br />
+                    
+
             <br/>
-            <input type="button" name="cargarButton" value="Cargar" onclick="previsualizarArchivo()"
-            class="btn btn-primary btn-lg"/>
 
 
             <br/>
