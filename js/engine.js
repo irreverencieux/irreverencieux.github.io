@@ -119,14 +119,29 @@ function logueado(response){
        // decodeJwtResponse() is a custom function defined by you
      // to decode the credential response.
   const responsePayload = decodeJwtResponse(response.credential);
-  console.log("Callback invocado...");
+    //const dominio=responsePayload.email.split("@")[1];
+
+            const nombre=responsePayload.given_name;
+            const urlImagen=responsePayload.picture;
+            const email = responsePayload.email;
+
+    
+    
+    
+    
+    
+    
+  //console.log("Callback invocado...");
   //console.log(response);
-  console.log("ID: " + responsePayload.sub);
-  console.log('Nombre completo: ' + responsePayload.name);
-  console.log('Nombre: ' + responsePayload.given_name);
-  console.log('Apellidos: ' + responsePayload.family_name);
-  console.log("Image URL: " + responsePayload.picture);
-  console.log("Email: " + responsePayload.email);
+  //console.log("ID: " + responsePayload.sub);
+  //console.log('Nombre completo: ' + responsePayload.name);
+  //console.log('Nombre: ' + responsePayload.given_name);
+  //console.log('Apellidos: ' + responsePayload.family_name);
+  //console.log("Image URL: " + responsePayload.picture);
+  //console.log("Email: " + responsePayload.email);
+  //console.log("Dominio: " + dominio);
+       let g = nextIteration();
+    
 
 }
 function decodeJwtResponse(token) {
@@ -139,3 +154,92 @@ function decodeJwtResponse(token) {
   return JSON.parse(jsonPayload);
 };
 
+
+///Ocultar elementos del DOM
+/*
+    <div id="myDIV">
+      This is my DIV element.
+    </div>
+    var x = document.getElementById("myDIV");
+    x.style.display = "block";
+    x.style.display = "none";
+*/
+
+///Cargar chunks de HTML con ` Cadena larga ` (backtick)
+/*
+
+const container = document.querySelector('.container');
+container.innerHTML = `
+
+<p>This is the first paragraph we're injecting into the page</p>
+
+<p>This is the second paragraph we're injecting into the page</p>
+
+<p>This is the third paragraph we're injecting into the page</p>
+
+`
+
+
+*/
+
+
+function nextIteration(target)
+{
+    let sumpC = `
+             <h2>Analizador de datos RAP</h2>
+            <br/>
+            <form action="" method="get">
+                <input id="archivo" type="file" accept=".txt, .log"/><br />
+                <input type="button" name="cargarButton" value="Cargar" onclick="previsualizarArchivo()"/>
+                <br/>
+                <textarea
+                name="origenTextBox" 
+                id="origen"
+                placeholder="Pega aqu&iacute; los datos de presión colectados con Putty"
+                rows="20"
+                style="width:100%; height:400px; vertical-align:top;"
+                onload="limpiaTexto()"
+                ></textarea>
+                <br/>
+                <input type="button" name="procesarButton" value="Procesar" onclick="procesar()"/>
+            </form>
+            <div id="grafica" style="width:100%; height:600px; vertical-align:top;"></div>
+`;
+    console.log(sumpC);
+    var au = document.getElementById("Autenticacion");
+    au.style.display = "none";
+    
+    
+    var ttt = document.getElementById("Sump");//document.querySelector('.Sump');
+    console.log(ttt);
+    ttt.innerHTML =sumpC;
+    
+
+}
+/*
+
+<h2>Analizador de datos RAP</h2>
+        <br/>
+        <form action="" method="get">
+            
+            <input id="archivo" type="file" accept=".txt, .log"/><br />
+            <input type="button" name="cargarButton" value="Cargar" onclick="previsualizarArchivo()"/>
+
+
+            <br/>
+            <textarea
+            name="origenTextBox" 
+            id="origen"
+            placeholder="Pega aqu&iacute; los datos de presión colectados con Putty"
+            rows="20"
+            style="width:100%; height:400px; vertical-align:top;"
+            onload="limpiaTexto()"
+            ></textarea>
+            <br/>
+            <input type="button" name="procesarButton" value="Procesar" onclick="procesar()"/>
+        </form>
+        <div id="grafica" style="width:100%; height:600px; vertical-align:top;"></div>
+
+
+
+*/
