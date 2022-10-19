@@ -19,6 +19,7 @@
         <form action="" method="get">
             
             <input id="archivo" type="file" accept=".txt, .log"/><br />
+            <br/>
             <input type="button" name="cargarButton" value="Cargar" onclick="previsualizarArchivo()"
             class="btn btn-primary btn-lg"/>
 
@@ -33,7 +34,7 @@
             onload="limpiaTexto()"
             ></textarea>
             <br/>
-            <input type="button" name="procesarButton" value="Procesar" onclick="procesar()" class="btn btn-primary btn-lg"/>
+            <input type="button" name="procesarButton" value="Procesar" onclick="procesar()" class="btn btn-success"/>
         </form>
         <div id="grafica" style="width:100%; height:600px; vertical-align:top;"></div>
         
