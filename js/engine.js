@@ -22,11 +22,14 @@ function drawChart(datos) {
 
   var options = {
     title: 'Analisis de presion',
+//      width: tabla.length/4,
+//        height: 1080,
     curveType: 'function',
     hAxis: { 
                format: 'dd/MM/yy',
                slantedText: true,
                slantedTextAngle: 90
+        
             },
     vAxis:  {
                 baseline: 0,
@@ -39,9 +42,16 @@ function drawChart(datos) {
     legend: { position: 'bottom' }
   };
 
-  var chart = new google.visualization.LineChart(document.getElementById('grafica'));
+      //var chart = new google.charts.Line(document.getElementById('grafica'));
 
+//      chart.draw(data, google.charts.Line.convertOptions(options));
+    
+    
+  var chart = new google.visualization.LineChart(document.getElementById('grafica'));
+//
   chart.draw(data, options);
+//     chart.draw(data, google.charts.Line.convertOptions(options));
+
 }
 
 function procesar(){
@@ -51,7 +61,7 @@ function procesar(){
   
   
  //this line is to watch the result in console , you can remove it later	
-  console.log("Refreshed"); 
+  //console.log("Refreshed"); 
     let texto = document.getElementById('origen').value;
     if (texto === undefined || texto === null) {
         //console.log("Error: Se intenta procesar una pagina cargada parcialmente o un control incorrecto (textarea:'origen')");
@@ -68,6 +78,7 @@ function procesar(){
         }
        });
        drawChart(muestras);
+
        //console.log(muestras);      
 }
 function limpiaTexto()
@@ -186,24 +197,55 @@ container.innerHTML = `
 function nextIteration(target)
 {
     let sumpC = `
-             <h2>Analizador de datos RAP</h2>
-            <br/>
-            <form action="" method="get">
-                <input id="archivo" type="file" accept=".txt, .log"/><br />
-                <input type="button" name="cargarButton" value="Cargar" onclick="previsualizarArchivo()"/>
-                <br/>
-                <textarea
-                name="origenTextBox" 
-                id="origen"
-                placeholder="Pega aqu&iacute; los datos de presión colectados con Putty"
-                rows="20"
-                style="width:100%; height:400px; vertical-align:top;"
-                onload="limpiaTexto()"
-                ></textarea>
-                <br/>
-                <input type="button" name="procesarButton" value="Procesar" onclick="procesar()"/>
-            </form>
-            <div id="grafica" style="width:100%; height:600px; vertical-align:top;"></div>
+             <div class="container-fluid">
+            
+        <div ><h2>Analizador de datos RAP</h2></div>
+        <br/>
+        <form action="" method="get" padding="20">
+            <div class="form-row">
+                <h4>Selecciona un archivo de bitácoras del R.A.P.</h4>
+            </div>
+            
+            <div class="form-row">
+                <div class="col">
+               
+                <input id="archivo" type="file" accept=".txt, .log" class="form-control form-control-lg"/>
+                <small id="tipDeArchivo" class="text-muted">
+                    (El archivo debe ser de extensi&oacute;n .txt o .log)
+                </small>
+                </div>
+                <div class="col">
+                    <!--label for="cargarButton"> </label-->
+                    <input type="button" name="cargarButton" value="Cargar" onclick="previsualizarArchivo()"
+                    class="btn btn-success btn-lg"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">
+                    <textarea
+                    name="origenTextBox" 
+                    id="origen"
+                    placeholder="Pega aqu&iacute; los datos de presión colectados con Putty"
+                    rows="20"
+                    style="width:100%; height:400px; vertical-align:top;"
+                    onload="limpiaTexto()"
+                    ></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col">Si los datos aparecen en el &aacute;rea de texto superior, haz clic en el bot&oacute;n <i>"procesar"</i></div>
+                <div class="col">
+                    <input type="button" name="procesarButton" value="Procesar" onclick="procesar()" class="btn btn-danger btn-lg"/>
+                </div>
+            </div>
+        </form>
+        <br/>
+            
+            
+                 <div id="grafica" style="overflow:scroll; height:600px; vertical-align:top;"></div>
+           
+        
+        </div>
 `;
     console.log(sumpC);
     var au = document.getElementById("Autenticacion");
@@ -212,7 +254,7 @@ function nextIteration(target)
     
     var ttt = document.getElementById("Sump");//document.querySelector('.Sump');
     console.log(ttt);
-    ttt.innerHTML =sumpC;//
+    ttt.innerHTML =sumpC;
     
 
 }
