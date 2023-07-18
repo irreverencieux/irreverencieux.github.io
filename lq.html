@@ -264,9 +264,12 @@
     function robaCaja() {
         var numeroCajaInput= document.getElementById("numeroCaja");
         var importeSistemaInput  = document.getElementById("importeSistema");
-        var saldo_total;
-        var id_caja;
-        var caja;
+        var saldo_total, saldo_cierre;
+        var id_caja, caja, id_usuario_admin;
+        var fecha_apertura, fecha_cierre;
+        var saldo_anterior, saldo_inicial, abono_inicial, acumulado, gastos;
+        var estado;
+
         if(parseInt(numeroCajaInput.value)>0){
             id_caja=numeroCajaInput.value;
         }
@@ -288,10 +291,42 @@
         caja= response;
         console.log(caja);
         saldo_total=parseFloat(response.data.saldo_total);
-        console.log(saldo_total);
-        importeSistemaInput.value= saldo_total.toFixed(2);
-        console.log(importeSistemaInput.value);
+        //console.log(saldo_total);
+        id_sucursal=parseInt(response.data.id_sucursal);
+        id_usuario_admin=parseInt(response.data.id_usuario_admin);
+        fecha_apertura=response.data.fecha_apertura;
+        fecha_cierre=response.data.fecha_cierre;
+        saldo_anterior=parseFloat(response.data.saldo_anterior);
+        abono_inicial=parseFloat(response.data.abono_inicial);
+        saldo_inicial=parseFloat(response.data.saldo_inicial);
+        gastos=parseFloat(response.data.gastos);
+        acumulado=parseFloat(response.data.acumulado);
+        saldo_cierre=parseFloat(response.data.saldo_cierre);
+        estado=parseInt(response.data.estado);
 
+        //TODO: Falta filtrar las cajas por cajeras
+        //TODO: Ligar a base de datos de google spreadsheets en cuenta de confordent
+        //TODO: En la base de datos, ubicar los logins y los tokens
+        //TODO: Restringir el acceso por cuentas de Google y gestionar los accesos desde una base de datos en GSpreadsheets
+
+        importeSistemaInput.value= saldo_total.toFixed(2);
+        //console.log(importeSistemaInput.value);
+// Ejemplo de respuesta:
+// {
+//     "data": {
+//         "id": 45,
+//         "id_sucursal": 1,
+//         "id_usuario_admin": 38,
+//         "fecha_apertura": "2017-11-30 14:33:26",
+//         "fecha_cierre": "2017-12-02 09:30:24",
+//         "saldo_anterior": 0,
+//         "abono_inicial": 0,
+//         "saldo_inicial": 0,
+//         "gastos": 2000,
+//         "acumulado": 800000,
+//         "saldo_total": 798000,
+//         "saldo_cierre": 0,
+//         "estado": 1,
     })
     .fail(function (error) {
       console.log(error);
