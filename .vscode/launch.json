@@ -8,8 +8,9 @@
         {
             "type": "msedge",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "/Users/orlando/Documents/GitHub/irreverencieux.github.io/index.html"
+            "name": "Probar liquidacion...",
+            "file": "/Users/orlan/OneDrive/Documentos/irreverencieux.github.io/lq.html"
+            
         }
 
     ]
