@@ -1,0 +1,106 @@
+
+<!-- 
+    Para lograr esto, necesitaremos varios pasos:
+
+1. Configurar la hoja de cálculo de Google:
+   - Crea una hoja de cálculo de Google y agrega una hoja llamada "Usuarios" 
+   con dos columnas: "Usuario" y "Contraseña".
+
+2. Obtener el código JavaScript para interactuar con la hoja de cálculo:
+   A continuación, se muestra un ejemplo de código JavaScript que utiliza
+   el token de API para autenticarse con Google y manipular la hoja de cálculo.
+
+
+   En el código, asegúrate de reemplazar `TU_API_KEY`, `TU_CLIENT_ID` e `ID_DE_TU_HOJA_DE_CALCULO` 
+   con los valores correspondientes de tu cuenta de Google.
+
+Una vez que hayas creado la hoja de cálculo, obtenido el token de API y actualizado
+ los valores en el código anterior, puedes crear una página HTML con un formulario de 
+ autenticación que inserte los datos de usuarios y contraseñas en la hoja de cálculo de 
+ Google utilizando la API de Google Sheets.
+Este código modificará el formulario para que al enviar los datos, verifique si el usuario 
+y la contraseña ingresados coinciden con los registrados en la hoja de cálculo de Google. 
+Si coinciden, mostrará un mensaje de "Inicio de sesión exitoso";
+ de lo contrario, mostrará un mensaje de "Usuario o contraseña incorrectos".
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Autenticación</title>
+    <!-- Agrega las referencias de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Formulario de Autenticación</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </form>
+    </div>
+
+    <!-- Agrega el script de la API de Google -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+        function handleClientLoad() {
+            gapi.load('client:auth2', initClient);
+        }
+//https://docs.google.com/spreadsheets/d/1-81cKBpQNRWk4MKfk4DAwz_uofp2t6zLFbRzST6ucjQ/edit?usp=sharing
+        function initClient() {
+            gapi.client.init({
+                apiKey: 'AIzaSyAP2HbbAKTAXLrgTHo2lFCXr6k9HTern9Y',
+                clientId: '1-81cKBpQNRWk4MKfk4DAwz_uofp2t6zLFbRzST6ucjQ',
+                discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
+                scope: "https://www.googleapis.com/auth/spreadsheets.readonly"
+            }).then(function () {
+                // Luego de la inicialización, agrega el evento al formulario
+                document.getElementById('loginForm').addEventListener('submit', validateUser);
+            }, function (error) {
+                console.log("Error en la inicialización de la API: ", error);
+            });
+        }
+
+        function validateUser(event) {
+            event.preventDefault();
+
+            // Obtiene los valores del formulario
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Realiza la llamada a la API para obtener los datos de la hoja de cálculo
+            gapi.client.sheets.spreadsheets.values.get({
+                spreadsheetId: 'ID_DE_TU_HOJA_DE_CALCULO',
+                range: 'Usuarios'
+            }).then(function(response) {
+                const data = response.result.values;
+                if (data) {
+                    const userFound = data.some(row => row[0] === username && row[1] === password);
+                    if (userFound) {
+                        alert('Inicio de sesión exitoso.');
+                        // Realiza alguna acción aquí, como redireccionar a otra página
+                    } else {
+                        alert('Usuario o contraseña incorrectos.');
+                    }
+                } else {
+                    alert('No se encontraron usuarios registrados en la hoja de cálculo.');
+                }
+            }, function(error) {
+                console.error('Error al obtener datos: ', error);
+            });
+        }
+    </script>
+
+    <!-- Llama a la función para manejar la carga de la API -->
+    <script>
+        handleClientLoad();
+    </script>
+</body>
+</html>
+

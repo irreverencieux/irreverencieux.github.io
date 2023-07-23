@@ -4,14 +4,21 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-    
         {
             "type": "msedge",
             "request": "launch",
-            "name": "Probar liquidacion...",
-            "file": "/Users/orlan/OneDrive/Documentos/irreverencieux.github.io/lq.html"
+            "name": "liquidacion",
+            "file": "/Users/orlan/OneDrive/Documentos/irreverencieux.github.io/lq/lq.html"
+            
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Autenticacion",
+            "file": "/Users/orlan/OneDrive/Documentos/irreverencieux.github.io/lq/login.html"
             
         }
+
 
     ]
 }
